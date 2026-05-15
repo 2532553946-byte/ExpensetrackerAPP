@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- 顶部：总消费记录 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/card_background"
+        android:padding="20dp"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="总消费"
+            android:textSize="18sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvTotalExpense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¥ 0.00"
+            android:textSize="36sp"
+            android:textColor="#2196F3"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvExpenseCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 笔记录"
+            android:textSize="14sp"
+            android:textColor="#999999"
+            android:layout_marginTop="4dp"/>
+
+        <!-- 新增：广播接收状态 -->
+        <TextView
+            android:id="@+id/tvBroadcastStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="广播状态: 等待中"
+            android:textSize="12sp"
+            android:textColor="#FF9800"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+
+    <!-- 中间：添加消费按钮 -->
+
+    <!-- 服务控制按钮 -->
+    <Button
+        android:id="@+id/btnAddExpense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#4CAF50"
+        android:drawableStart="@android:drawable/ic_menu_add"
+        android:drawablePadding="8dp"
+        android:padding="16dp"
+        android:text="添加消费记录"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
+
+        <Button
+            android:id="@+id/btnStartService"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="启动后台任务"
+            android:textSize="16sp"
+            android:backgroundTint="#2196F3"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btnStopService"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="停止后台任务"
+            android:textSize="16sp"
+            android:backgroundTint="#F44336"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"/>
+    </LinearLayout>
+    <!-- 新增：发送账单按钮 -->
+    <Button
+        android:id="@+id/btnSendBill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#FF9800"
+        android:text="发送账单"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:padding="16dp"/>
+    <!-- 分隔线 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 列表标题行 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="消费记录"
+            android:textColor="#333333"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- 日历图标 -->
+        <ImageView
+            android:id="@+id/ivCalendar"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_calendar"
+            android:padding="4dp"
+            android:contentDescription="查看统计"/>
+    </LinearLayout>
+
+    <!-- 下方：列表区域 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvExpenses"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#F5F5F5"/>
+
+</LinearLayout>
